@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { ArrowDown, ArrowUpRight, Download, ExternalLink, Menu, X } from 'lucide-react'
+import { FaInstagram, FaLinkedinIn, FaFacebookF, FaGithub } from 'react-icons/fa'
 
 const portrait = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-10-06%20at%2010.02.04%20PM-QB0i7mXehlaTNcKrOSgyKMQ9ShGOXW.jpeg'
 const illustration = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TumFq9uV4XSa3Ujfq3nrBTDLwCfk4n.png'
@@ -9,10 +10,10 @@ const idCard = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-dq
 const cvUrl = 'https://blobs.vusercontent.net/blob/Arham_Zia_Minimal_CV-Ye8WG5t8I5e5vPF8nNVvUlzUEFSPrF.pdf'
 
 const socials = [
-  { label: 'Instagram', short: 'ig', href: 'https://instagram.com/syedarhamzia96' },
-  { label: 'LinkedIn', short: 'in', href: 'https://linkedin.com/in/arham-zia-831b9630a' },
-  { label: 'Facebook', short: 'f', href: 'https://facebook.com/arham.zia.37' },
-  { label: 'GitHub', short: 'gh', href: 'https://github.com/arhamziadev' },
+  { label: 'Instagram', short: 'ig', href: 'https://instagram.com/syedarhamzia96', icon: <FaInstagram size={18} color="#E4405F" /> },
+  { label: 'LinkedIn', short: 'in', href: 'https://linkedin.com/in/arham-zia-831b9630a', icon: <FaLinkedinIn size={18} color="#0A66C2" /> },
+  { label: 'Facebook', short: 'f', href: 'https://facebook.com/arham.zia.37', icon: <FaFacebookF size={18} color="#1877F2" /> },
+  { label: 'GitHub', short: 'gh', href: 'https://github.com/arhamziadev', icon: <FaGithub size={18} color="#333333" /> },
 ]
 
 export default function Page() {
@@ -70,7 +71,16 @@ export default function Page() {
       <section id="about" className="about section-wrap reveal">
         <div className="section-index">01 / ABOUT</div>
         <div className="about-content"><p className="section-kicker">A little about me</p><h2>Designing with a<br /><em>builder&apos;s mindset.</em></h2><p className="body-copy">I&apos;m a curious developer who enjoys the space where visual design meets code. Alongside building responsive dashboards and websites, I&apos;m pursuing my DAE in Civil Engineering — learning to think in systems, structure, and detail.</p><a className="inline-link" href="https://arhamziadev.github.io/zynkra-project-dashboard/#/projects" target="_blank" rel="noreferrer">Explore my dashboard <ExternalLink size={16} /></a></div>
-        <div className="portrait-column"><div className="portrait-frame"><div className="portrait-outline" /><img src={portrait} alt="Arham Zia wearing a traditional olive outfit" /><span>ARHAM<br />ZIA / 01</span></div><div className="social-logo-row" aria-label="Social links">{socials.map(({ label, short, href }) => <a className={`social-logo social-${short}`} key={label} href={href} target="_blank" rel="noreferrer" aria-label={`Open Arham Zia on ${label}`}><span>{short}</span></a>)}</div></div>
+        <div className="portrait-column">
+          <div className="portrait-frame"><div className="portrait-outline" /><img src={portrait} alt="Arham Zia wearing a traditional olive outfit" /><span>ARHAM<br />ZIA / 01</span></div>
+          <div className="social-logo-row" aria-label="Social links">
+            {socials.map(({ label, short, href, icon }) => (
+              <a className={`social-logo social-${short}`} key={label} href={href} target="_blank" rel="noreferrer" aria-label={`Open Arham Zia on ${label}`}>
+                {icon}
+              </a>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section id="work" className="work section-wrap reveal"><div className="section-index">02 / SELECTED WORK</div><div className="work-heading"><h2>Things I&apos;ve<br /><em>been building.</em></h2><span>01 — 01</span></div><a href="https://arhamziadev.github.io/zynkra-project-dashboard/#/projects" target="_blank" rel="noreferrer" className="project-card"><div className="project-number">01</div><div><p className="section-kicker">Featured project</p><h3>Zynkra Project<br /><em>Dashboard</em></h3><p className="project-desc">A focused dashboard experience designed to make project planning feel simple, clear, and actionable.</p><div className="tag-row"><span>Frontend</span><span>Dashboard</span><span>UI / UX</span></div></div><ArrowUpRight className="project-arrow" size={28} /></a></section>
